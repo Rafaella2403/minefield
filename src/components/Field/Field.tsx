@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ViewStyle, Text } from 'react-native';
 
-import { Mine } from '../';
+import { Mine, Flag } from '../';
 
 import styles from './Field.style';
 
@@ -10,9 +10,10 @@ interface IField {
   opened?: boolean,
   nearMines?: number,
   exploded?: boolean;
+  flagged?: boolean;
 }
 
-const Field = ({ mined, nearMines = 0, opened, exploded }: IField) => {
+const Field = ({ mined, nearMines = 0, opened, exploded, flagged }: IField) => {
   const getSytles = () => {
     const styleField: ViewStyle[] = [styles.field];
 
@@ -25,7 +26,9 @@ const Field = ({ mined, nearMines = 0, opened, exploded }: IField) => {
     if (exploded) {
       styleField.push(styles.exploded);
     }
-
+    if (flagged) {
+      styleField.push(styles.regular);
+    }
     return styleField;
   };
 
@@ -58,6 +61,7 @@ const Field = ({ mined, nearMines = 0, opened, exploded }: IField) => {
         </Text>
       )}
       {mined && opened && <Mine />}
+      {flagged && !opened && <Flag />}
     </View>
   );
 };
