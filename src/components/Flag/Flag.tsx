@@ -3,13 +3,17 @@ import { View } from 'react-native';
 
 import styles from './Flag.style';
 
-const Flag = () => {
+interface IFlag {
+  bigger?: boolean,
+}
+
+const Flag = ({ bigger }: IFlag) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.flagpole} />
-      <View style={styles.flag} />
-      <View style={styles.basePrimary} />
-      <View style={styles.baseSecundary} />
+    <View style={[styles.container]}>
+      <View style={[styles.flagpole, bigger && styles.flagpoleBigger]} />
+      <View style={[styles.flag, bigger && styles.flagBigger]} />
+      <View style={[styles.basePrimary, bigger && styles.basePrimaryBigger]} />
+      <View style={[styles.baseSecundary, bigger && styles.baseSecundaryBigger]} />
     </View>
   );
 };

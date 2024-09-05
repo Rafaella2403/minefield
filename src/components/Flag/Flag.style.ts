@@ -34,4 +34,25 @@ export default StyleSheet.create({
     position: 'absolute',
     backgroundColor: '#222222',
   },
+  flagpoleBigger: {
+    width: 4,
+    height: 28,
+    marginLeft: 16,
+  },
+  flagBigger: {
+    width: 13,
+    height: 14,
+  },
+  basePrimaryBigger: {
+    width: 12,
+    height: 4,
+    marginLeft: 12,
+    marginTop: 20,
+  },
+  baseSecundaryBigger: {
+    width: 20,
+    height: 4,
+    marginLeft: 8,
+    marginTop: 24,
+  },
 });
