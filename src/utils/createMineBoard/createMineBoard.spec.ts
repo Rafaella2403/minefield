@@ -1,11 +1,11 @@
-import createMinefield from './createMinefield';
+import createMineBoard from './createMineBoard';
 
-describe('createMinefield utility function', () => {
+describe('createMineBoard utility function', () => {
 	test('should create a board with the correct dimensions', () => {
 		const rows = 5;
 		const columns = 5;
 		const minesAmount = 5;
-		const board = createMinefield({ rows, columns, minesAmount });
+		const board = createMineBoard({ rows, columns, minesAmount });
 
 		expect(board.length).toBe(rows);
 		expect(board[0].length).toBe(columns);
@@ -15,7 +15,7 @@ describe('createMinefield utility function', () => {
 		const rows = 5;
 		const columns = 5;
 		const minesAmount = 5;
-		const board = createMinefield({ rows, columns, minesAmount });
+		const board = createMineBoard({ rows, columns, minesAmount });
 
 		const minesCount = board.flat().filter(cell => cell.mined).length;
 		expect(minesCount).toBe(minesAmount);
@@ -25,7 +25,7 @@ describe('createMinefield utility function', () => {
 		const rows = 2;
 		const columns = 2;
 		const minesAmount = 10;
-		const board = createMinefield({ rows, columns, minesAmount });
+		const board = createMineBoard({ rows, columns, minesAmount });
 
 		const minesCount = board.flat().filter(cell => cell.mined).length;
 		expect(minesCount).toBe(rows * columns);
@@ -35,7 +35,7 @@ describe('createMinefield utility function', () => {
 		const rows = 3;
 		const columns = 3;
 		const minesAmount = 3;
-		const board = createMinefield({ rows, columns, minesAmount });
+		const board = createMineBoard({ rows, columns, minesAmount });
 
 		board.flat().forEach(cell => {
 			expect(cell).toHaveProperty('row');

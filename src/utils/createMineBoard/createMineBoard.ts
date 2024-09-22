@@ -40,16 +40,16 @@ const spreadMines = ({board, minesAmount}: ISpreadMines) => {
   }
 };
 
-interface ICreateMinefield {
+interface ICreateMineBoard {
   rows: number;
   columns: number;
   minesAmount: number;
 }
 
-const createMinefield = ({rows, columns, minesAmount}: ICreateMinefield) => {
+const createMineBoard = ({rows, columns, minesAmount}: ICreateMineBoard) => {
   const board = createBoard({rows, columns});
   spreadMines({board, minesAmount});
   return board;
 };
 
-export default createMinefield;
+export default createMineBoard;
