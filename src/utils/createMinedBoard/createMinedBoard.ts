@@ -5,7 +5,7 @@ interface ICreateBoard {
 
 const createBoard = ({rows, columns}: ICreateBoard) => {
   return Array(rows).fill(0).map((_, row) => {
-    return Array(columns).fill(0).map((_, column) => {
+    return Array(columns).fill(0).map((__, column) => {
       return {
         row,
         column,
