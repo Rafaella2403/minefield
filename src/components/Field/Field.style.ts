@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import params from '../../params';
+import { params } from '../../utils';
 
 export default StyleSheet.create({
   field: {
