@@ -15,9 +15,9 @@ const MineField = (props: IMineField) => {
     const columns = row.map((field, c) => {
       return <Field {...field} key={c} onOpen={() => props.onOpenField(r, c)} onSelect={() => props.onSelectField(r, c)} />;
     });
-    return <View key={r}>{columns}</View>;
+    return <View key={r} style={styles.container}>{columns}</View>;
   });
-  return <View style={styles.container} >{renderRows()}</View>;
+  return <View style={styles.mineFieldContainer}>{renderRows()}</View>;
 };
 
 export default MineField;

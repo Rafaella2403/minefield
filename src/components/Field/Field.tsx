@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ViewStyle, Text } from 'react-native';
+import { View, ViewStyle, Text, TouchableWithoutFeedback } from 'react-native';
 
 import { Mine, Flag } from '../';
 
@@ -7,7 +7,7 @@ import styles from './Field.style';
 
 interface IField {
   mined?: boolean,
-  opened?: boolean,
+  opened?: any,
   nearMines?: number,
   exploded?: boolean;
   flagged?: boolean;
@@ -54,15 +54,17 @@ const Field = ({ mined, nearMines = 0, opened, exploded, flagged }: IField) => {
   };
 
   return (
-    <View style={getSytles()}>
-      {!mined && opened && nearMines > 0 && (
-        <Text style={[styles.label, {color: getTextColorField()}]}>
-          {nearMines}
-        </Text>
-      )}
-      {mined && opened && <Mine />}
-      {flagged && !opened && <Flag />}
-    </View>
+    <TouchableWithoutFeedback onPress={opened}>
+      <View style={getSytles()}>
+        {!mined && opened && nearMines > 0 && (
+          <Text style={[styles.label, {color: getTextColorField()}]}>
+            {nearMines}
+          </Text>
+        )}
+        {mined && opened && <Mine />}
+        {flagged && !opened && <Flag />}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
