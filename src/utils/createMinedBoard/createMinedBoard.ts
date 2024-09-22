@@ -46,10 +46,10 @@ interface ICreateMineBoard {
   minesAmount: number;
 }
 
-const createMineBoard = ({rows, columns, minesAmount}: ICreateMineBoard) => {
+const createMinedBoard = ({rows, columns, minesAmount}: ICreateMineBoard) => {
   const board = createBoard({rows, columns});
   spreadMines({board, minesAmount});
   return board;
 };
 
-export default createMineBoard;
+export default createMinedBoard;
